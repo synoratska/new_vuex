@@ -56,6 +56,7 @@
 
 <script>
 import ValidationErrors from '@/components/ValidationErrors.vue'
+import { actionTypes } from '@/store/modules/auth'
 export default {
   name: 'SignupPage',
   components: {
@@ -80,7 +81,7 @@ export default {
     onSubmit() {
       console.log('Submitted')
       this.$store
-        .dispatch('register', {
+        .dispatch(actionTypes.register, {
           email: this.email,
           username: this.username,
           password: this.password,
