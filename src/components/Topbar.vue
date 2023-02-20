@@ -1,26 +1,38 @@
 <template>
   <nav class="navbar navbar-light">
     <div class="container">
-      <router-link class="navbar-bran" :to="{ name: 'home' } ">
-        MyBlog
+      <router-link class="navbar-bran" :to="{ name: 'home' }">
+        My Blog
       </router-link>
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: 'home' }" exact active-class="active">
+          <router-link
+            class="nav-link"
+            :to="{ name: 'home' }"
+            exact
+            active-class="active"
+          >
             Home</router-link
           >
         </li>
         <template v-if="isLoggedIn">
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'createArticle' }" active-class="active">
+            <router-link
+              class="nav-link"
+              :to="{ name: 'createArticle' }"
+              active-class="active"
+            >
               <i class="ion-compose"></i> &nbsp; New Article</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'settings' }" active-class="active">
-              <i class="ion-gear-a"> &nbsp; </i>Settings
-              </router-link
+            <router-link
+              class="nav-link"
+              :to="{ name: 'settings' }"
+              active-class="active"
             >
+              <i class="ion-gear-a"> &nbsp; </i>Settings
+            </router-link>
           </li>
           <li class="nav-item">
             <router-link
@@ -36,14 +48,22 @@
           </li>
         </template>
         <template v-if="isAnonymous">
-              <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'login' }" active-class="active">
-               Sign In</router-link
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              :to="{ name: 'login' }"
+              active-class="active"
+            >
+              Sign In</router-link
             >
           </li>
-             <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'signup' }" active-class="active">
-               Sign Up</router-link
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              :to="{ name: 'signup' }"
+              active-class="active"
+            >
+              Sign Up</router-link
             >
           </li>
         </template>
@@ -53,20 +73,29 @@
 </template>
 
 <script>
-import {getterTypes} from '@/store/modules/auth'
-import { mapGetters} from 'vuex'
-
+import { getterTypes } from '@/store/modules/auth'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'TopBar',
   computed: {
-   ...mapGetters({
-    currentUser: getterTypes.currentUser,
-    isLoggedIn: getterTypes.isLoggedIn,
-    isAnonymous: getterTypes.isAnonymous
-   })
+    ...mapGetters({
+      currentUser: getterTypes.currentUser,
+      isLoggedIn: getterTypes.isLoggedIn,
+      isAnonymous: getterTypes.isAnonymous,
+    }),
   },
 }
 </script>
 
-<style></style>
+<style scoped>
+.navbar-bran {
+  color: #30306c;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+
+</style>
