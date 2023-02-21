@@ -1,8 +1,9 @@
 <template>
-  <div>Feed {{apiUrl  }}</div>
+  <div>Feed {{ apiUrl }}</div>
 </template>
 
 <script>
+import {actionTypes} from '@/store/modules/feed'
 export default {
   name: 'FeedView',
   props: {
@@ -11,6 +12,9 @@ export default {
       required: true,
     },
   },
+  mounted() {
+  this.$store.dispatch(actionTypes.getFeed, {apiUrl: this.apiUrl})
+  }
 }
 </script>
 
