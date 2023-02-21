@@ -5,7 +5,7 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">Sign Up</h1>
           <p class="text-xs-center">
-            <router-link :to="{ name: 'login' }">
+            <router-link :to="{ name: 'login' }" class="text">
               Already registered?
             </router-link>
           </p>
@@ -95,4 +95,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.text {
+  color: #bba61f;
+}
+
+.btn-primary {
+  background-color: #bba61f ;
+  border-color:  #bba61f;
+}
+</style>

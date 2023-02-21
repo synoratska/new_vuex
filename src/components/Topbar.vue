@@ -90,10 +90,14 @@ export default {
 
 <style scoped>
 .navbar-bran {
-  color: #30306c;
+  color: #bba61f;
   font-weight: 800;
   text-decoration: none;
   font-size: 20px;
+}
+
+.ion-compose, .ion-gear-a {
+ color:#bba61f;
 }
 
 

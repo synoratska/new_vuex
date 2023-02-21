@@ -5,7 +5,7 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">Sign in</h1>
           <p class="text-xs-center">
-            <router-link :to="{ name: 'signup' }">
+            <router-link :to="{ name: 'signup' }" class="text">
               Need an account?
             </router-link>
           </p>
@@ -61,10 +61,10 @@ export default {
     }
   },
   computed: {
-     ...mapState({
-    isSubmitting: state => state.auth.isSubmitting,
-    validationErrors: state => state.auth.validationErrors
-   })
+    ...mapState({
+      isSubmitting: (state) => state.auth.isSubmitting,
+      validationErrors: (state) => state.auth.validationErrors,
+    }),
   },
   methods: {
     onSubmit() {
@@ -81,4 +81,13 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.text {
+  color: #bba61f;
+}
+
+.btn-primary {
+  background-color: #bba61f;
+  border-color: #bba61f;
+}
+</style>
