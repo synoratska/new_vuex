@@ -1,14 +1,14 @@
 <template>
   <nav class="navbar navbar-light">
     <div class="container">
-      <router-link class="navbar-bran" :to="{ name: 'home' }">
-        My Blog
+      <router-link class="navbar-bran" :to="{ name: 'globalFeed' }">
+        <img class="logo" src="@/assets/logo.svg" /> &nbsp;
       </router-link>
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
           <router-link
             class="nav-link"
-            :to="{ name: 'home' }"
+            :to="{ name: 'globalFeed' }"
             exact
             active-class="active"
           >
@@ -96,10 +96,19 @@ export default {
   font-size: 20px;
 }
 
-.ion-compose, .ion-gear-a {
- color:#bba61f;
+.logo {
+  max-width: 40px;
+  max-height: 40px;
 }
 
+.logo img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
 
-
+.ion-compose,
+.ion-gear-a {
+  color: #bba61f;
+}
 </style>
