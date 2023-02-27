@@ -30,18 +30,24 @@
             </router-link>
             <span class="date">{{ article.createdAt }}</span>
           </div>
-          <div class="pull-xs-right">
-           ADD TO FAVORITES
-          </div>
-         </div>
-         <router-link :to="{name: 'article', params: {slug: article.slug}}" class="preview-link">
+          <div class="pull-xs-right">ADD TO FAVORITES</div>
+        </div>
+        <router-link
+          :to="{ name: 'article', params: { slug: article.slug } }"
+          class="preview-link"
+        >
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
           <span>Read more...</span>
           TAG LIST
-         </router-link>
+        </router-link>
       </div>
-      PAGINATION
+      <PaginationComp
+        :total="total"
+        :limit="limit"
+        :current-page="currentPage"
+        :url="url"
+      />
     </div>
   </div>
 </template>
@@ -49,13 +55,25 @@
 <script>
 import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/feed'
+import PaginationComp from '@/components/Pagination'
 export default {
   name: 'FeedView',
+  components: {
+    PaginationComp,
+  },
   props: {
     apiUrl: {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      total: 500,
+      limit: 10,
+      currentPage: 5,
+      url: '/tags/dragons',
+    }
   },
   computed: {
     ...mapState({
@@ -70,4 +88,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.author {
+  color: #bba61f;
+}
+</style>

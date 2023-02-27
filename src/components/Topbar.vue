@@ -96,6 +96,11 @@ export default {
   font-size: 20px;
 }
 
+.navbar-light .navbar-nav .nav-link {
+  color: #bba61f;
+  text-transform: uppercase;
+}
+
 .logo {
   max-width: 40px;
   max-height: 40px;
