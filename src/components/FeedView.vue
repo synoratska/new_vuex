@@ -46,7 +46,7 @@
         :total="feed.articlesCount"
         :limit="limit"
         :current-page="currentPage"
-        :url="url"
+        :url="baseUrl"
       />
     </div>
   </div>
@@ -82,13 +82,25 @@ export default {
       error: (state) => state.feed.error,
     }),
     currentPage() {
-     console.log('current page', this.$route)
-     return Number(this.$route.query.page || '1')
-
-    }
+      return Number(this.$route.query.page || '1')
+    },
+    baseUrl() {
+      return this.$route.path
+    },
+  },
+  watch: {
+    currentPage() {
+      console.log('currentPage change')
+      this.fetchFeed()
+    },
   },
   mounted() {
-    this.$store.dispatch(actionTypes.getFeed, { apiUrl: this.apiUrl })
+    this.fetchFeed()
+  },
+  methods: {
+    fetchFeed() {
+      this.$store.dispatch(actionTypes.getFeed, { apiUrl: this.apiUrl })
+    },
   },
 }
 </script>
