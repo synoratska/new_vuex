@@ -43,7 +43,7 @@
         </router-link>
       </div>
       <PaginationComp
-        :total="total"
+        :total="feed.articlesCount"
         :limit="limit"
         :current-page="currentPage"
         :url="url"
@@ -56,6 +56,7 @@
 import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/feed'
 import PaginationComp from '@/components/Pagination'
+import { limit } from '@/helpers/vars'
 export default {
   name: 'FeedView',
   components: {
@@ -69,9 +70,8 @@ export default {
   },
   data() {
     return {
-      total: 500,
-      limit: 10,
-      currentPage: 5,
+      // total: 500,
+      limit,
       url: '/tags/dragons',
     }
   },
@@ -81,6 +81,11 @@ export default {
       feed: (state) => state.feed.data,
       error: (state) => state.feed.error,
     }),
+    currentPage() {
+     console.log('current page', this.$route)
+     return Number(this.$route.query.page || '1')
+
+    }
   },
   mounted() {
     this.$store.dispatch(actionTypes.getFeed, { apiUrl: this.apiUrl })
