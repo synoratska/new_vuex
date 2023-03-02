@@ -57,6 +57,7 @@ import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/feed'
 import PaginationComp from '@/components/Pagination'
 import { limit } from '@/helpers/vars'
+import queryString from 'query-string'
 export default {
   name: 'FeedView',
   components: {
@@ -70,9 +71,8 @@ export default {
   },
   data() {
     return {
-      // total: 500,
       limit,
-      url: '/tags/dragons',
+      url: '/',
     }
   },
   computed: {
@@ -90,16 +90,26 @@ export default {
   },
   watch: {
     currentPage() {
-      console.log('currentPage change')
+      console.log('currentPage changed')
       this.fetchFeed()
     },
   },
   mounted() {
+    console.log('currentPage changed')
     this.fetchFeed()
   },
   methods: {
     fetchFeed() {
-      this.$store.dispatch(actionTypes.getFeed, { apiUrl: this.apiUrl })
+      const parsedUrl = queryString.parseUrl(this.apiUrl)
+      const stringifiedParams = queryString.stringify({
+        limit,
+        offset: 0,
+        ...parsedUrl.query,
+      })
+
+      const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
+
+      this.$store.dispatch(actionTypes.getFeed, { apiUrl: apiUrlWithParams })
     },
   },
 }
