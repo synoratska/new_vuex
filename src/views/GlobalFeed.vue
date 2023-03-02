@@ -6,7 +6,9 @@
      <div class="col-md-9">
       <FeedView :api-url="apiUrl"/>
      </div>
-     <div class="col-md-3">POPULAR TAGS</div>
+     <div class="col-md-3">
+      <PopularTags />
+     </div>
     </div>
    </div>
 
@@ -15,10 +17,12 @@
 
 <script>
 import FeedView from '@/components/FeedView.vue'
+import PopularTags from '@/components/PopularTags.vue'
 export default {
  name: 'GlobalFeed',
  components: {
   FeedView,
+  PopularTags
  },
   data() {
    return {
