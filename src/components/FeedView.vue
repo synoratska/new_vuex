@@ -87,6 +87,9 @@ export default {
     baseUrl() {
       return this.$route.path
     },
+    offset() {
+     return this.currentPage * limit - limit
+    }
   },
   watch: {
     currentPage() {
@@ -103,7 +106,7 @@ export default {
       const parsedUrl = queryString.parseUrl(this.apiUrl)
       const stringifiedParams = queryString.stringify({
         limit,
-        offset: 0,
+        offset: this.offset,
         ...parsedUrl.query,
       })
 
