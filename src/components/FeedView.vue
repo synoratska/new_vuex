@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isLoading">Loading...</div>
+   <LoadingComp v-if="isLoading"/>
     <div v-if="error">Something bad happened</div>
 
     <div v-if="feed">
@@ -56,12 +56,14 @@
 import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/feed'
 import PaginationComp from '@/components/Pagination'
+import LoadingComp from '@/components/Loading.vue'
 import { limit } from '@/helpers/vars'
 import queryString from 'query-string'
 export default {
   name: 'FeedView',
   components: {
     PaginationComp,
+    LoadingComp
   },
   props: {
     apiUrl: {

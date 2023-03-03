@@ -38,7 +38,8 @@ export default {
 <style scoped>
 
 .home-page .banner {
-  background-color: #817f0c;
+  background: url('http://www.techelium.in/wp-content/uploads/2015/10/blog-banner-1024x322.jpg') no-repeat center;
+  width: 100%;
 }
 
 </style>
