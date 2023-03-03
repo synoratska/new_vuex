@@ -2,7 +2,7 @@
   <div>
     <LoadingComp v-if="isLoading" />
 
-    <div v-if="error">Something went wrong</div>
+   <ErrorMessage v-if="error" />
 
     <div class="sidebar" v-if="popularTags">
       <p>Popular Tags</p>
@@ -10,7 +10,7 @@
         <router-link
           v-for="popularTag in popularTags"
           :key="popularTag"
-          :to="{ name: 'tag', params: { slug: popularTag } }"
+          :to="{ name: 'tag', params: { slug: popularTag }}"
           class="tag-default tag-pill"
         >
           {{ popularTag }}
@@ -24,10 +24,12 @@
 import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/popularTags'
 import LoadingComp from '@/components/Loading.vue'
+import ErrorMessage from '@/components/ErrorMessage.vue'
 export default {
   name: 'PopularTags',
   components: {
     LoadingComp,
+    ErrorMessage
   },
   computed: {
     ...mapState({

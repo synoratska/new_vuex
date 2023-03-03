@@ -1,7 +1,7 @@
 <template>
   <div>
    <LoadingComp v-if="isLoading"/>
-    <div v-if="error">Something bad happened</div>
+    <ErrorMessage v-if="error" />
 
     <div v-if="feed">
       <div
@@ -57,13 +57,15 @@ import { mapState } from 'vuex'
 import { actionTypes } from '@/store/modules/feed'
 import PaginationComp from '@/components/Pagination'
 import LoadingComp from '@/components/Loading.vue'
+import ErrorMessage from '@/components/ErrorMessage.vue'
 import { limit } from '@/helpers/vars'
 import queryString from 'query-string'
 export default {
   name: 'FeedView',
   components: {
     PaginationComp,
-    LoadingComp
+    LoadingComp,
+    ErrorMessage
   },
   props: {
     apiUrl: {
