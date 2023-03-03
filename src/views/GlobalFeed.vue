@@ -1,6 +1,6 @@
 <template>
  <div class="home-page">
-   BANNER
+   <BannerComp />
    <div class="container page">
     <div class="row">
      <div class="col-md-9">
@@ -18,11 +18,13 @@
 <script>
 import FeedView from '@/components/FeedView.vue'
 import PopularTags from '@/components/PopularTags.vue'
+import BannerComp from '@/components/Banner.vue'
 export default {
  name: 'GlobalFeed',
  components: {
   FeedView,
-  PopularTags
+  PopularTags,
+  BannerComp
  },
   data() {
    return {
@@ -34,5 +36,9 @@ export default {
 </script>
 
 <style scoped>
+
+.home-page .banner {
+  background-color: #817f0c;
+}
 
 </style>
