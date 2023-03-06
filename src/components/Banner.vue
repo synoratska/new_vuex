@@ -13,4 +13,15 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+
+.banner h1{
+ color: rgba(0, 0, 0, 0.602);
+ margin-top: 50px;
+}
+
+.banner p{
+ color: #0f4456d2;
+ margin-top: 10px;
+}
+</style>
