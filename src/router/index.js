@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import GlobalFeed from '@/views/GlobalFeed'
 import YourFeed from '@/views/YourFeed'
+import TagFeed from '@/views/TagFeed'
 import Signup from '@/views/Signup'
 import Login from '@/views/Login'
 
@@ -31,7 +32,7 @@ const routes = [
   {
     path: '/tags/:slug',
     name: 'tag',
-    component: GlobalFeed,
+    component: TagFeed,
   },
   {
     path: '/articles/new',
