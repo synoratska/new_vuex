@@ -46,7 +46,7 @@
           <div>
             <p>{{ article.body }}</p>
           </div>
-          TAGLIST
+          <TagList :tags="article.tagList" />
         </div>
       </div>
     </div>
@@ -59,12 +59,14 @@ import { getterTypes as authGetterType } from '@/store/modules/auth'
 import { mapState, mapGetters } from 'vuex'
 import Loading from '@/components/Loading.vue'
 import ErrorMessage from '@/components/ErrorMessage.vue'
+import TagList from '@/components/TagList.vue'
 
 export default {
   name: 'ArticleComp',
   components: {
     Loading,
     ErrorMessage,
+    TagList
   },
   computed: {
     ...mapState({

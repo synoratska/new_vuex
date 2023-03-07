@@ -39,7 +39,7 @@
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
           <span>Read more...</span>
-          TAG LIST
+          <TagList :tags="article.tagList" />
         </router-link>
       </div>
       <PaginationComp
@@ -58,6 +58,7 @@ import { actionTypes } from '@/store/modules/feed'
 import PaginationComp from '@/components/Pagination'
 import LoadingComp from '@/components/Loading.vue'
 import ErrorMessage from '@/components/ErrorMessage.vue'
+import TagList from '@/components/TagList.vue'
 import { limit } from '@/helpers/vars'
 import queryString from 'query-string'
 export default {
@@ -65,7 +66,8 @@ export default {
   components: {
     PaginationComp,
     LoadingComp,
-    ErrorMessage
+    ErrorMessage,
+    TagList
   },
   props: {
     apiUrl: {
