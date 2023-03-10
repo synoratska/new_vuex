@@ -15,10 +15,58 @@
                   type="text"
                   class="form-control form-control-lg"
                   v-model="form.image"
+                  placeholder="URL of profile picture"
                 />
               </fieldset>
+
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  v-model="form.username"
+                  placeholder="Username"
+                />
+              </fieldset>
+
+              <fieldset class="form-group">
+                <textarea
+                  class="form-control form-control-lg"
+                  v-model="form.bio"
+                  placeholder="Short biography about you"
+                ></textarea>
+              </fieldset>
+
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  v-model="form.email"
+                  placeholder="Email"
+                />
+              </fieldset>
+
+              <fieldset class="form-group">
+                <input
+                  type="password"
+                  class="form-control form-control-lg"
+                  v-model="form.password"
+                  placeholder="Password"
+                />
+              </fieldset>
+
+              <button
+                type="submit"
+                class="btn btn-lg btn-primary pull-xs-right"
+                :disabled="isSubmitting"
+              >
+                Update Settings
+              </button>
             </fieldset>
           </form>
+          <hr />
+          <button class="btn btn-outline-danger" @click="logout" type="text">
+            Or click here to logout
+          </button>
         </div>
       </div>
     </div>
@@ -26,10 +74,17 @@
 </template>
 
 <script>
+import ValidationErrors from '@/components/ValidationErrors.vue'
 import { mapState, mapGetters } from 'vuex'
-import { getterTypes as authGetterTypes } from '@/store/modules/auth'
+import {
+  getterTypes as authGetterTypes,
+  actionTypes as authActionTypes,
+} from '@/store/modules/auth'
 export default {
   name: 'SettingsPage',
+  components: {
+    ValidationErrors
+  },
   computed: {
     ...mapState({
       isSubmitting: (state) => state.settings.isSubmitting,
@@ -38,19 +93,25 @@ export default {
     ...mapGetters({
       currentUser: authGetterTypes.currentUser,
     }),
-    form(){
-        return {
-          username: this.currentUser.username,
-          bio: this.currentUser.bio,
-          image: this.currentUser.image,
-          email: this.currentUser.email,
-          password: ''
-        }
-    }
+    form() {
+      return {
+        username: this.currentUser.username,
+        bio: this.currentUser.bio,
+        image: this.currentUser.image,
+        email: this.currentUser.email,
+        password: '',
+      }
+    },
   },
   methods: {
     onSubmit() {
-      console.log('submitted settings')
+      console.log('submitted settings', this.form)
+      this.$store.dispatch(authActionTypes.updateCurrentUser, {
+        currentUserInput: this.form,
+      })
+    },
+    logout() {
+      console.log('Log out')
     },
   },
 }

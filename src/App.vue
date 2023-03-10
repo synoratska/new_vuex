@@ -21,3 +21,18 @@ export default {
   
 }
 </script>
+
+<style>
+
+.btn-primary {
+  background-color: #bba61f !important;
+  border-color: #bba61f;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background-color: #a7951c !important;
+  border-color: #a7951c;
+  outline: none;
+}
+</style>

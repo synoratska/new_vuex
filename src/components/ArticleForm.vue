@@ -102,14 +102,4 @@ export default {
 </script>
 
 <style scoped>
-.btn-primary {
-  background-color: #bba61f;
-  border-color: #bba61f;
-  text-transform: uppercase;
-}
-.btn-primary:hover {
-  background-color: #a7951c;
-  border-color: #a7951c;
-  outline: none;
-}
 </style>
