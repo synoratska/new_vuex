@@ -81,22 +81,22 @@ export default {
   },
   data() {
     return {
-      title: '',
-      description: '',
-      body: '',
-      tagList: '',
+      title: this.initialValues.title,
+      description: this.initialValues.description,
+      body: this.initialValues.body,
+      tagList: this.initialValues.tagList.join(' '),
     }
   },
   methods: {
     onSubmit() {
       const form = {
-       title: this.title,
-       description: this.description,
-       body: this.body,
-       tagList: this.tagList.split(' ')
+        title: this.title,
+        description: this.description,
+        body: this.body,
+        tagList: this.tagList.split(' '),
       }
-      this.$emit('articleSubmit', form)
-    },
+         this.$emit('articleSubmit', form)
+    }
   },
 }
 </script>

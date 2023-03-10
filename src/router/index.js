@@ -7,6 +7,7 @@ import Article from '@/views/Article'
 import Signup from '@/views/Signup'
 import Login from '@/views/Login'
 import CreateArticle from '@/views/CreateArticle'
+import EditArticle from '@/views/EditArticle'
 
 Vue.use(VueRouter)
 
@@ -49,7 +50,7 @@ const routes = [
   {
     path: '/articles/:slug/edit',
     name: 'editArticle',
-    component: GlobalFeed,
+    component: EditArticle,
   },
 
   {
