@@ -112,6 +112,12 @@ export default {
   object-fit: cover;
 }
 
+.user-pic {
+  border-radius: 50%;
+  max-width: 25px;
+  max-height: 25px;
+}
+
 .ion-compose,
 .ion-gear-a {
   color: #bba61f;

@@ -110,6 +110,9 @@ export default {
       console.log('currentPage changed')
       this.fetchFeed()
     },
+    apiUrl() {
+      this.fetchFeed()
+    }
   },
   mounted() {
     console.log('currentPage changed')
