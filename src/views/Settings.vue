@@ -112,6 +112,9 @@ export default {
     },
     logout() {
       console.log('Log out')
+      this.$store.dispatch(authActionTypes.logout).then(() => {
+        this.$router.push({name: 'globalFeed'})
+      })
     },
   },
 }
