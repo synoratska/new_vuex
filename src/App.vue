@@ -36,15 +36,19 @@ export default {
 .btn-outline-primary {
   color: #a7951c;
   border-color: #a7951c;
+  outline: none;
 }
 
-.btn-outline-primary:focus {
+.btn-outline-primary:focus,
+.btn-outline-primary:hover {
   background-color: #a7951c !important;
   border-color: #a7951c;
+  outline: none;
 }
 .btn-primary:active:hover,
 .btn-primary:active:focus {
   background-color: #a7951c !important;
   border-color: #a7951c;
+  outline: none;
 }
 </style>
