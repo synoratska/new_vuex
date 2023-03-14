@@ -1,4 +1,4 @@
-# new_vuex
+# vuex-blog
 
 Here is deployed version:
 ### [Live Site](https://vuex-blog.netlify.app/#/)
