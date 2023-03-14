@@ -5,7 +5,7 @@ Here is deployed version:
 
 ## Introduction
 
-This is a demo of multifunctional blog, built in vue/vuex.
+This is a demo of multifunctional blog with authentication built in vue/vuex. You can create your own article, edit and delete it.  Besides, you can update profile info in settings and like other users' articles.
 
 [vuex_blog]
 
